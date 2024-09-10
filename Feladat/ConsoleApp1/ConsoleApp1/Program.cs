@@ -103,9 +103,9 @@ namespace ConsoleApp1
             
                 if(meccs.hazai == csapat && meccs.hazaiVege<meccs.vendegVege)
                 {
-
-                    Console.WriteLine($"Forduló: {meccs.fordulo}, {meccs.vendeg} ellen");
+                    if(egyszersem) Console.WriteLine($"Elsőnek:\nForduló: {meccs.fordulo}, {meccs.vendeg} ellen");
                     egyszersem = false;
+                    break;
                 }
             }
 
