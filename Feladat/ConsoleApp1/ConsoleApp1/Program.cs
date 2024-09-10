@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public static List<Meccs> meccsek = Beolvasas();
         static void Main(string[] args)
         {
-            Console.WriteLine(meccsek);
+            Feladat2();
         }
 
         public static List<Meccs> Beolvasas() { 
@@ -29,6 +29,19 @@ namespace ConsoleApp1
 
             return meccsek;
 
+        }
+
+        public static void Feladat2() {
+
+            Console.Write("Adj meg egy mérkőzés számot: ");
+            int szam = Convert.ToInt32(Console.ReadLine());
+            foreach (var meccs in meccsek)
+            {
+                if (szam == meccs.fordulo) {
+                    Console.WriteLine($"{meccs.hazai}-{meccs.vendeg}: {meccs.hazaiVege}-{meccs.vendegVege} ({meccs.hazaiFel}-{meccs.vendegFel})");
+                }
+            }
+        
         }
     }
 }
