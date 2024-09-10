@@ -97,13 +97,13 @@ namespace ConsoleApp1
         }
         public static void Feladat6() {
 
-            Console.WriteLine($"A {csapat} csapat otthon ennyiszer kapott ki: ");
+            Console.WriteLine($"A {csapat} csapat elsőnek otthon kapott ki: ");
             bool egyszersem = true;
             foreach (var meccs in meccsek) { 
             
                 if(meccs.hazai == csapat && meccs.hazaiVege<meccs.vendegVege)
                 {
-                    if(egyszersem) Console.WriteLine($"Elsőnek:\nForduló: {meccs.fordulo}, {meccs.vendeg} ellen");
+                    if(egyszersem) Console.WriteLine($"Forduló: {meccs.fordulo}, {meccs.vendeg} ellen");
                     egyszersem = false;
                     break;
                 }
