@@ -19,6 +19,7 @@ namespace ConsoleApp1
             Console.Write("Adj meg egy csapat nevet: ");
             csapat = Console.ReadLine();
             Feladat5();
+            Feladat6();
         }
 
         public static List<Meccs> Beolvasas() {
@@ -91,6 +92,22 @@ namespace ConsoleApp1
 
             Console.WriteLine($"Lőtt gólok száma: {lott}\tkapott gólok száma: {kapott}");
         
+        }
+        public static void Feladat6() {
+
+            Console.WriteLine($"A {csapat} csapat otthon ennyiszer kapott ki: ");
+            bool egyszersem = true;
+            foreach (var meccs in meccsek) { 
+            
+                if(meccs.hazai == csapat && meccs.hazaiVege<meccs.vendegVege)
+                {
+
+                    Console.WriteLine($"Forduló: {meccs.fordulo}, {meccs.vendeg} ellen");
+                    egyszersem = false;
+                }
+            }
+
+            if (egyszersem) Console.WriteLine("A csapat otthon veretlen maradt.");
         }
 
     }
