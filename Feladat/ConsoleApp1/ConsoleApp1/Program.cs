@@ -18,6 +18,7 @@ namespace ConsoleApp1
             Feladat3();
             Console.Write("Adj meg egy csapat nevet: ");
             csapat = Console.ReadLine();
+            Feladat5();
         }
 
         public static List<Meccs> Beolvasas() {
@@ -66,10 +67,29 @@ namespace ConsoleApp1
                 }
             }
 
-        }
-        public static void Feladat5() { 
-        
-        
+        } 
+        public static void Feladat5() {
+
+            int lott = 0;
+            int kapott = 0;
+            foreach (var meccs in meccsek)
+            {
+
+                if (meccs.hazai == csapat)
+                {
+
+                    lott += meccs.hazaiVege;
+                    kapott += meccs.vendegVege;
+                }
+                else if (meccs.vendeg == csapat) {
+
+                    lott += meccs.vendegVege;
+                    kapott += meccs.hazaiVege;
+                
+                }
+            }
+
+            Console.WriteLine($"Lőtt gólok száma: {lott}\tkapott gólok száma: {kapott}");
         
         }
 
