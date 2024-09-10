@@ -11,10 +11,13 @@ namespace ConsoleApp1
     internal class Program
     {
         public static List<Meccs> meccsek = Beolvasas();
+        public static string csapat = "Lelkesek";
         static void Main(string[] args)
         {
             Feladat2();
             Feladat3();
+            Console.Write("Adj meg egy csapat nevet: ");
+            csapat = Console.ReadLine();
         }
 
         public static List<Meccs> Beolvasas() {
@@ -64,5 +67,11 @@ namespace ConsoleApp1
             }
 
         }
+        public static void Feladat5() { 
+        
+        
+        
+        }
+
     }
 }
