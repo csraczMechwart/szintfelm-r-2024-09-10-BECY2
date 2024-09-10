@@ -27,6 +27,14 @@ namespace ConsoleApp1
             this.vendeg = vendeg;
         }
 
+        public string Eredmeny() {
+
+            string vege = "";
+            if (hazaiVege > vendegVege) vege = $"{hazaiVege}-{vendegVege}";
+            else vege = $"{vendegVege}-{hazaiVege}";
+            return vege;
+        }
+
         //public bool Fordito() {
 
         //    if (hazaiFel < vendegFel && hazaiVege > vendegVege) return true;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace ConsoleApp1
             csapat = Console.ReadLine();
             Feladat5();
             Feladat6();
+            Feladat7();
         }
 
         public static List<Meccs> Beolvasas() {
@@ -108,6 +110,46 @@ namespace ConsoleApp1
             }
 
             if (egyszersem) Console.WriteLine("A csapat otthon veretlen maradt.");
+        }
+
+        public static void Feladat7() { 
+        
+        
+            Dictionary<string, int> eredmenyek = new Dictionary<string, int>();
+            foreach (var meccs in meccsek)
+            {
+                string ered = meccs.Eredmeny();
+
+                if(!eredmenyek.ContainsKey(ered)) {
+                    eredmenyek[ered] = 0;
+                }
+                eredmenyek[ered] += 1;
+                
+            }
+            //foreach (KeyValuePair<string, int> entry in eredmenyek)
+            //{
+            //    // do something with entry.Value or entry.Key
+
+            //    Console.WriteLine($"{entry.Key}. {entry.Value}");
+            //}
+            try
+            {
+
+                StreamWriter sw = new StreamWriter("stat.txt");
+                sw.Flush();
+
+                foreach (KeyValuePair<string, int> entry in eredmenyek)
+                {
+                    // do something with entry.Value or entry.Key
+
+                    sw.WriteLine($"{entry.Key}. {entry.Value}");
+                }
+                sw.Close();
+            }
+            catch(Exception ex) { 
+                Console.WriteLine(ex.ToString());
+            }
+
         }
 
     }
