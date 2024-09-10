@@ -26,5 +26,13 @@ namespace ConsoleApp1
             this.hazai = hazai;
             this.vendeg = vendeg;
         }
+
+        //public bool Fordito() {
+
+        //    if (hazaiFel < vendegFel && hazaiVege > vendegVege) return true;
+        //    if (vendegFel < hazaiFel && vendegVege > hazaiVege) return true;
+        //    return false;
+        
+        //}
     }
 }

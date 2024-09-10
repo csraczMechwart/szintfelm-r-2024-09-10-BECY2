@@ -14,17 +14,18 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Feladat2();
+            Feladat3();
         }
 
-        public static List<Meccs> Beolvasas() { 
-        
+        public static List<Meccs> Beolvasas() {
+
             List<Meccs> meccsek = new List<Meccs>();
 
 
-            foreach (var lines in File.ReadAllLines("meccs.txt").Skip(1)) { 
-            
+            foreach (var lines in File.ReadAllLines("meccs.txt").Skip(1)) {
+
                 var line = lines.Split(' ');
-                meccsek.Add(new Meccs(Convert.ToInt32(line[0]), Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]), line[5], line[6] ));
+                meccsek.Add(new Meccs(Convert.ToInt32(line[0]), Convert.ToInt32(line[1]), Convert.ToInt32(line[2]), Convert.ToInt32(line[3]), Convert.ToInt32(line[4]), line[5], line[6]));
             }
 
             return meccsek;
@@ -41,7 +42,27 @@ namespace ConsoleApp1
                     Console.WriteLine($"{meccs.hazai}-{meccs.vendeg}: {meccs.hazaiVege}-{meccs.vendegVege} ({meccs.hazaiFel}-{meccs.vendegFel})");
                 }
             }
-        
+
+        }
+
+        public static void Feladat3() {
+
+            //int forditok = meccsek.Count(x => x.Fordito());
+
+
+            Console.WriteLine($"Fordító csapatok:");
+            foreach (var meccs in meccsek) {
+
+
+                if (meccs.hazaiFel < meccs.vendegFel && meccs.hazaiVege > meccs.vendegVege)
+                {
+                    Console.WriteLine($"Forduló: {meccs.fordulo}\tGyőztes csapat: {meccs.hazai}");
+                }
+                else if (meccs.hazaiFel > meccs.vendegFel && meccs.hazaiVege < meccs.vendegVege) {
+                    Console.WriteLine($"Forduló: {meccs.fordulo}\tGyőztes csapat: {meccs.vendeg}");
+                }
+            }
+
         }
     }
 }
